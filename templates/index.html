@@ -1,3 +1,4 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +14,9 @@
         <h1>My Web Page</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('database') }}">Database</a></li>
+                <!-- Added link to the Database page -->
                 <!-- Add more menu items as needed -->
             </ul>
         </nav>

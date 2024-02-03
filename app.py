@@ -40,5 +40,15 @@ def confirmation():
     
     return render_template('confirmation.html', submissions=submissions)
 
+@app.route('/database')
+def database():
+    # Directly display the database page with stored data
+    conn = sqlite3.connect('data.db')
+    cursor = conn.execute('SELECT name, email FROM submissions')
+    submissions = cursor.fetchall()
+    conn.close()
+
+    return render_template('database.html', submissions=submissions)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
